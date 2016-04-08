@@ -6,8 +6,10 @@
 
 
   <div class="container">
+    <% if current_user.admin %>
     <!-- ADMIN LINKS -->
-    <%= link_to 'New Book', new_book_path %>
+      <%= link_to 'New Book', new_book_path %>
+    <% end %>
     <!-- END ADMIN LINKS -->
     <h1>Books</h1>
     <div class="row">
@@ -23,14 +25,14 @@
             <div class="book_category"><strong>Category</strong>: <%= book.category %></div>
 
 
-      <% end %>
+          <% end %>
+          <% if current_user.admin %>
             <!-- ADMIN LINKS -->
             <%= link_to 'Edit', edit_book_path(book) %>
             <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-            <%=link_to "Add To Cart", add_to_cart_path(book), :method => :put %>
-
             <!-- END ADMIN LINKS -->
+          <% end %>
+            <%=link_to "Add To Cart", add_to_cart_path(book), :method => :put %>
           </div>
         </div>
       <% end %>
