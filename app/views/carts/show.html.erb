@@ -14,19 +14,13 @@
             <div class="book_author"><strong>Author</strong>: <%= book.author %></div>
             <div class="book_price"><strong>Price</strong>: $<%= book.price %></div>
             <div class="book_category"><strong>Category</strong>: <%= book.category %></div>
-
-
-      <% end %>
-            <!-- ADMIN LINKS -->
-            <%= link_to 'Edit', edit_book_path(book) %>
-            <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-            <%=link_to "Remove From Cart", remove_from_cart_path(book), :method => :put %>
-
-            <!-- END ADMIN LINKS -->
+       <% end %>
+      <%=link_to "Remove From Cart", remove_from_cart_path(book), :method => :put %>
           </div>
         </div>
       <% end %>
+      
+      <h4>Cart Total: <%= @total %></h4>
     <% else %>
       <div class="">
         <h4>Cart is Empty</h4>
