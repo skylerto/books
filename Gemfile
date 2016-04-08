@@ -47,3 +47,5 @@ group :production do
   gem 'pg'
 end
 
+2.3.0
+
