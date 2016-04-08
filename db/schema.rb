@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408144924) do
+ActiveRecord::Schema.define(version: 20160408145519) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title",       limit: 255,                           null: false
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20160408144924) do
     t.string   "isbn",        limit: 255,                           null: false
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+  end
+
+  create_table "controllers", force: :cascade do |t|
+    t.string   "books",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
