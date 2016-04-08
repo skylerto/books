@@ -12,6 +12,12 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @cart_action = @book.cart_action session.id
+    if @book.analytic
+      @book.analytic.views = @book.analytic.views + 1
+      @book.analytic.save
+    else
+     @book.analytic = Book::Analytic.new
+    end
   end
 
 
@@ -19,6 +25,7 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    @book.book_analytics = Book::Analytic.new
   end
 
   # GET /books/1/edit

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408191646) do
+ActiveRecord::Schema.define(version: 20160408211042) do
+
+  create_table "book_analytics", force: :cascade do |t|
+    t.integer  "book_id",    limit: 4
+    t.integer  "views",      limit: 4, default: 0
+    t.integer  "sold",       limit: 4, default: 0
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "book_analytics", ["book_id"], name: "index_book_analytics_on_book_id", using: :btree
 
   create_table "books", force: :cascade do |t|
     t.string   "title",       limit: 255,                           null: false
