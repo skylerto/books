@@ -1,5 +1,7 @@
 class Book < ActiveRecord::Base
-   validates :title, :description, :isbn, :price, :author, presence: true
+  validates :title, :description, :isbn, :price, :author, presence: true
+  
+  has_many :reviews
 
   def cart_action(current_user_id)
     if $redis.sismember "cart#{current_user_id}", id

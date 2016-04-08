@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # HOME PAGE
   #root 'welcome#index'
   root 'books#index'
-  resources :books
+  resources :books do
+    resources :reviews
+  end
 
   resource :cart, only: [:show] do
     put 'add/:book_id', to: 'carts#add', as: :add_to

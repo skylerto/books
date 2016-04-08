@@ -6,7 +6,7 @@
 
 
   <div class="container">
-    <% if current_user.admin %>
+    <% if user_signed_in? && current_user.admin %>
     <!-- ADMIN LINKS -->
       <%= link_to 'New Book', new_book_path %>
     <% end %>
@@ -26,7 +26,7 @@
 
 
           <% end %>
-          <% if current_user.admin %>
+          <% if user_signed_in? && current_user.admin %>
             <!-- ADMIN LINKS -->
             <%= link_to 'Edit', edit_book_path(book) %>
             <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
