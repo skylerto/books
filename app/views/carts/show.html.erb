@@ -12,20 +12,21 @@
               <h3><%= book.title %></h3>
             </div>
             <div class="book_author"><strong>Author</strong>: <%= book.author %></div>
-            <div class="book_price"><strong>Price</strong>: $<%= book.price %></div>
+            <div class="book_price"><strong>Price</strong>: <%= number_to_currency(book.price) %></div>
             <div class="book_category"><strong>Category</strong>: <%= book.category %></div>
        <% end %>
       <%=link_to "Remove From Cart", remove_from_cart_path(book), :method => :put %>
           </div>
         </div>
       <% end %>
-      
-      <h4>Cart Total: <%= @total %></h4>
+      </div>
+      <div class="row">
+        <h4>Cart Total: <%= number_to_currency(@total) %></h4>
+      </div>
     <% else %>
       <div class="">
         <h4>Cart is Empty</h4>
       </div>
     <% end %>
 
-      </div>
 </div>
