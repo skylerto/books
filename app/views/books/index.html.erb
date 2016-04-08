@@ -1,17 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Books</h1>
   <div class="container">
+    <h1>Books</h1>
     <div class="row">
       <% @books.each do |book| %>
-        <div class="col-md-3">
+        <%= link_to book do%>
+        <div class="col-md-4">
           <div class="book">
-            <div class="book_title"><strong>Title:</strong>: <%= book.title %></div>
+            <div class="book_title">
+              <h3><%= book.title %></h3>
+            </div>
             <div class="book_price"><strong>Price</strong>: $<%= book.price %></div>
             <div class="book_category"><strong>Category</strong>: <%= book.category %></div>
-            <%= link_to 'View Book', book %>
 
 
+      <% end %>
             <!-- ADMIN LINKS -->
             <%= link_to 'Edit', edit_book_path(book) %>
             <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
