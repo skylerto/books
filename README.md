@@ -7,8 +7,9 @@ I'm not one to talk the talk and not walk the walk, so here it is.
 
 ## System dependencies
 
-Uses device for user authentication.
-Using redis for cashing cart.
+  - Uses device for user authentication.
+  - Using redis for cashing cart.
+  - Paypal to manage purchases.
 
 ## Database
 
