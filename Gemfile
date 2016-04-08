@@ -30,6 +30,7 @@ gem 'devise-bootstrap-views'
 # Caching
 gem 'redis' #, '~> 3.0.1'
 gem 'hiredis' #, '~> 0.4.5'
+  gem 'mysql2', '~> 0.3.18' 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,12 +41,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'mysql2', '~> 0.3.18' 
 end
 
-group :production do
-  gem 'pg'
-end
 
 ruby "2.3.0"
 
