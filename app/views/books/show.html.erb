@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="book">
+      <div class="book_title"><h2><%= @book.title %></h2></div>
+      <div class="book_author"><strong>Author</strong>: <%= @book.author %></div>
+      <div class="book_price"><strong>Price</strong>: <%= number_to_currency(@book.price) %></div>
+      <div class="book_category"><strong>Category</strong>: <%= @book.category %></div>
+      <div class="book_isbn"><strong>ISBN</strong>: <%= @book.isbn %></div>
+      <div class="book_desrption"><strong>Description</strong>: <%= @book.description %></div>
+    </div>
+  <% if user_signed_in? && current_user.admin %>
+    <%= link_to 'Edit', edit_book_path(@book) %>
+  <% end %>
+    <%= link_to 'Back', books_path %>
+  </div>
+  <div class="row">
+
+    <h3>Comments</h3>
+    <% @book.reviews.each do |review| %>
+      <div class="review panel panel-default">
+        <div class="review_user panel-heading">Posted by: <%= review.user %> on <%= review.created_at %></div>
+        <div class="review_body panel-body"><%= review.review %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+
+    <%= form_for([@book, @book.reviews.build]) do |f| %>
+      <fieldset class="form-group">
+        <%= f.label :user%><br />
+        <% username = user_signed_in? ? current_user.email : "anonymous" %>
+        <%= f.text_field :user, :readonly => true, value: username , :class => "form-control" %>
+          </fieldset>
+      <fieldset class="form-group">
+        <%= f.label :review %><br />
+        <%= f.text_area :review, :class => "form-control" %>
+  </fieldset>
+      <div class="form-group">
+        <%= f.submit :submit, :class => "btn btn-primary" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+

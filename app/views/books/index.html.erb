@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+    <br>
+
+
+
+
+  <div class="container">
+    <% if user_signed_in? && current_user.admin %>
+    <!-- ADMIN LINKS -->
+      <%= link_to 'New Book', new_book_path %>
+    <% end %>
+    <!-- END ADMIN LINKS -->
+    <h1>Books</h1>
+    <div class="row">
+      <% @books.each do |book| %>
+        <%= link_to book do%>
+        <div class="col-md-4">
+          <div class="book">
+            <div class="book_title">
+              <h3><%= book.title %></h3>
+            </div>
+            <div class="book_author"><strong>Author</strong>: <%= book.author %></div>
+            <div class="book_price"><strong>Price</strong>: <%= number_to_currency(book.price) %></div>
+            <div class="book_category"><strong>Category</strong>: <%= book.category %></div>
+
+
+          <% end %>
+          <% if user_signed_in? && current_user.admin %>
+            <!-- ADMIN LINKS -->
+            <%= link_to 'Edit', edit_book_path(book) %>
+            <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <!-- END ADMIN LINKS -->
+          <% end %>
+            <%=link_to "Add To Cart", add_to_cart_path(book), :method => :put %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+</div>
