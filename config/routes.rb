@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :books do
     resources :reviews
   end
+  resources :admin
 
   resource :cart, only: [:show] do
     put 'add/:book_id', to: 'carts#add', as: :add_to
