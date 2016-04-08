@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+    <br>
+
+
+
+
   <div class="container">
+    <!-- ADMIN LINKS -->
+    <%= link_to 'New Book', new_book_path %>
+    <!-- END ADMIN LINKS -->
     <h1>Books</h1>
     <div class="row">
       <% @books.each do |book| %>
@@ -10,6 +18,7 @@
             <div class="book_title">
               <h3><%= book.title %></h3>
             </div>
+            <div class="book_author"><strong>Author</strong>: <%= book.author %></div>
             <div class="book_price"><strong>Price</strong>: $<%= book.price %></div>
             <div class="book_category"><strong>Category</strong>: <%= book.category %></div>
 
@@ -24,10 +33,5 @@
         </div>
       <% end %>
     </div>
-  </div>
 
-<br>
-
-<!-- ADMIN LINKS --
-<%= link_to 'New Book', new_book_path %>
-<!-- END ADMIN LINKS -->
+</div>
