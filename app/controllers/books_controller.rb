@@ -10,7 +10,11 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @book = Book.find(params[:id])
+    @cart_action = @book.cart_action session.id
   end
+
+
 
   # GET /books/new
   def new

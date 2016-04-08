@@ -1,17 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-    <br>
-
-
-
-
-  <div class="container">
-    <!-- ADMIN LINKS -->
-    <%= link_to 'New Book', new_book_path %>
-    <!-- END ADMIN LINKS -->
-    <h1>Books</h1>
-    <div class="row">
-      <% @books.each do |book| %>
+<div class="container">
+  <div class="row">
+    <h1>Cart</h1>
+  </div>
+  <div class="row">
+    <% if @cart_books.size > 0 %>
+      <% @cart_books.each do |book| %>
         <%= link_to book do%>
         <div class="col-md-4">
           <div class="book">
@@ -28,12 +21,17 @@
             <%= link_to 'Edit', edit_book_path(book) %>
             <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-            <%=link_to "Add To Cart", add_to_cart_path(book), :method => :put %>
+            <%=link_to "Remove From Cart", remove_from_cart_path(book), :method => :put %>
 
             <!-- END ADMIN LINKS -->
           </div>
         </div>
       <% end %>
-    </div>
+    <% else %>
+      <div class="">
+        <h4>Cart is Empty</h4>
+      </div>
+    <% end %>
 
+      </div>
 </div>
