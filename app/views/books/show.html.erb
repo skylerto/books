@@ -4,8 +4,8 @@
   <div class="row">
     <div class="book">
       <div class="book_title"><h2><%= @book.title %></h2></div>
-      <div class="book_author"><strong>Author</strong>: $<%= @book.author %></div>
-      <div class="book_price"><strong>Price</strong>: <%= @book.price %></div>
+      <div class="book_author"><strong>Author</strong>: <%= @book.author %></div>
+      <div class="book_price"><strong>Price</strong>: <%= number_to_currency(@book.price) %></div>
       <div class="book_category"><strong>Category</strong>: <%= @book.category %></div>
       <div class="book_isbn"><strong>ISBN</strong>: <%= @book.isbn %></div>
       <div class="book_desrption"><strong>Description</strong>: <%= @book.description %></div>

@@ -19,7 +19,7 @@
               <h3><%= book.title %></h3>
             </div>
             <div class="book_author"><strong>Author</strong>: <%= book.author %></div>
-            <div class="book_price"><strong>Price</strong>: $<%= book.price %></div>
+            <div class="book_price"><strong>Price</strong>: <%= number_to_currency(book.price) %></div>
             <div class="book_category"><strong>Category</strong>: <%= book.category %></div>
 
 
@@ -27,6 +27,8 @@
             <!-- ADMIN LINKS -->
             <%= link_to 'Edit', edit_book_path(book) %>
             <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+            <%=link_to "Add To Cart", add_to_cart_path(book), :method => :put %>
 
             <!-- END ADMIN LINKS -->
           </div>
