@@ -49,7 +49,7 @@ test:
 #
 production:
   <<: *default
-  DATBASE_URL: mysql://be4cd2499b3f27:349a4a4c@us-cdbr-iron-east-03.cleardb.net/heroku_46d99622bfd0aee?reconnect=true
+  url: mysql://be4cd2499b3f27:349a4a4c@us-cdbr-iron-east-03.cleardb.net/heroku_46d99622bfd0aee?reconnect=true
   database: mom-and-pop_production
   username: mom-and-pop
   password: <%= ENV['MOM-AND-POP_DATABASE_PASSWORD'] %>
