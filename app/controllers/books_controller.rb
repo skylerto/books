@@ -25,7 +25,7 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
-    @book.book_analytics = Book::Analytic.new
+    @book.analytic = Book::Analytic.new
   end
 
   # GET /books/1/edit
