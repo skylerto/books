@@ -23,7 +23,7 @@
       <div class="row">
         <h4>Cart Total: <%= number_to_currency(@total) %></h4>
         <% if user_signed_in? %>
-          <%= link_to "Checkout", root %>
+          <%= link_to "Checkout", root_path %>
         <% else %>
           <span class="">Please <%= link_to "sign in", new_user_session_path %> before checking out!</span>
         <% end %>
