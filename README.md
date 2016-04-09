@@ -11,7 +11,7 @@ taking, here's the Java [Mom and Pop Books](https://github.com/skylerto/mom-and-
 ## System dependencies
 
   - Uses device for user authentication.
-  - Using redis for cashing cart.
+  - Using redis for caching cart.
   - Paypal to manage purchases.
 
 ## Database
