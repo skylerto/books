@@ -1,6 +1,6 @@
 # Initialize redis, with hiredis as the driver
 
-uri = URI.parse(ENV["REDISTOGO_URL"])
+uri = URI.parse(ENV["REDIS_URL"])
 if uri
   $redis = Redis.new(:driver => :hiredis, :url => uri)
 else
