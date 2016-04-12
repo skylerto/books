@@ -1,6 +1,6 @@
 # Books
 
-Books is originally a fork of [the-better-mom-and-pop]() project.
+Originally a fork of [the-better-mom-and-pop]() project.
 
 Books is a book note posting/reviewing/referring platform
 
